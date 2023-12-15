@@ -13,7 +13,7 @@ void add_(stack_t **stack, unsigned int line_number)
 
 	if (!*stack || !(*stack)->next)
 	{
-		dprintf(STDERR_FILENO, "L%d: stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
@@ -35,7 +35,7 @@ void sub_t(stack_t **stack, unsigned int line_number)
 
 	if (!curr || !curr->next)
 	{
-		dprintf(STDERR_FILENO, "L%d: stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't sub, stack too short\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
@@ -55,7 +55,7 @@ void pop_(stack_t **stack, unsigned int line_number)
 
 	if (!*stack || !stack)
 	{
-		dprintf(STDERR_FILENO, "L%d: empty stack\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
@@ -80,11 +80,22 @@ void swap_(stack_t **stack, unsigned int line_number)
 
 	if (!*stack || !(*stack)->next)
 	{
-		dprintf(STDERR_FILENO, "L%d: stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
 	temp = curr->n;
 	curr->n = curr->next->n;
 	curr->next->n = temp;
+}
+
+/**
+ * nop_ - void function
+ * @stack: pointer to pointer to stack_t
+ * @line_number: unsigned int
+ */
+void nop_(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }

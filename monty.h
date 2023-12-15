@@ -71,6 +71,7 @@ void div_d(stack_t **stack, unsigned int line_number);
 void mod_(stack_t **stack, unsigned int line_number);
 void p_str(stack_t **stack, unsigned int line_number);
 void p_char(stack_t **stack, unsigned int line_number);
+void nop_(stack_t **stack, unsigned int line_number);
 stack_t *newnode(int n);
 void free_list(stack_t *stack);
 

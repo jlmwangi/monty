@@ -47,7 +47,7 @@ void pint_(stack_t **stack, unsigned int line_number)
 {
 	if (!stack || !*stack)
 	{
-		dprintf(STDERR_FILENO, "L%d: stack is empty\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}

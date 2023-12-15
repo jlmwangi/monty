@@ -46,6 +46,7 @@ int handle_opcode(stack_t **stack, char *arg, char *item, int c)
 		{"mod", mod_},
 		{"pstr", p_str},
 		{"pchar", p_char},
+		{"nop", nop_},
 		{NULL, NULL}
 	};
 

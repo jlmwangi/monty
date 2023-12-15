@@ -60,7 +60,7 @@ void mul_t(stack_t **stack, unsigned int line_number)
 
 	if (!*stack || !(*stack)->next)
 	{
-		dprintf(STDERR_FILENO, "L%d: stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't mul, stack too short\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
@@ -83,13 +83,13 @@ void div_d(stack_t **stack, unsigned int line_number)
 
 	if (!*stack || !(*stack)->next)
 	{
-		dprintf(STDERR_FILENO, "L%d: stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't div, stack too short\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
 	else if ((*stack)->n == 0)
 	{
-		dprintf(STDERR_FILENO, "L%d: cannot divide by zero\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
@@ -111,13 +111,13 @@ void mod_(stack_t **stack, unsigned int line_number)
 
 	if (!*stack || !(*stack)->next)
 	{
-		dprintf(STDERR_FILENO, "L%d: stack too short\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't mod, stack too short\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
 	else if ((*stack)->n == 0)
 	{
-		dprintf(STDERR_FILENO, "L%d: division using zero\n", line_number);
+		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
 		stack_clean(stack);
 		exit(EXIT_FAILURE);
 	}
